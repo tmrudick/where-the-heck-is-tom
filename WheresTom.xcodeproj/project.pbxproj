@@ -19,6 +19,8 @@
 		2C769D7B186619B000BEB409 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C769D63186619B000BEB409 /* UIKit.framework */; };
 		2C769D83186619B000BEB409 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C769D81186619B000BEB409 /* InfoPlist.strings */; };
 		2C769D85186619B000BEB409 /* WheresTomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C769D84186619B000BEB409 /* WheresTomTests.m */; };
+		2C769D9118661A4300BEB409 /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C769D8F18661A4300BEB409 /* WTViewController.m */; };
+		2C769D9218661A4300BEB409 /* WTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C769D9018661A4300BEB409 /* WTViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		2C769D80186619B000BEB409 /* WheresTomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WheresTomTests-Info.plist"; sourceTree = "<group>"; };
 		2C769D82186619B000BEB409 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C769D84186619B000BEB409 /* WheresTomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WheresTomTests.m; sourceTree = "<group>"; };
+		2C769D8E18661A4300BEB409 /* WTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTViewController.h; sourceTree = "<group>"; };
+		2C769D8F18661A4300BEB409 /* WTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTViewController.m; sourceTree = "<group>"; };
+		2C769D9018661A4300BEB409 /* WTViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,9 @@
 				2C769D6F186619B000BEB409 /* WTAppDelegate.m */,
 				2C769D71186619B000BEB409 /* Images.xcassets */,
 				2C769D66186619B000BEB409 /* Supporting Files */,
+				2C769D8E18661A4300BEB409 /* WTViewController.h */,
+				2C769D8F18661A4300BEB409 /* WTViewController.m */,
+				2C769D9018661A4300BEB409 /* WTViewController.xib */,
 			);
 			path = WheresTom;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			files = (
 				2C769D6A186619B000BEB409 /* InfoPlist.strings in Resources */,
 				2C769D72186619B000BEB409 /* Images.xcassets in Resources */,
+				2C769D9218661A4300BEB409 /* WTViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +251,7 @@
 			files = (
 				2C769D6C186619B000BEB409 /* main.m in Sources */,
 				2C769D70186619B000BEB409 /* WTAppDelegate.m in Sources */,
+				2C769D9118661A4300BEB409 /* WTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
