@@ -8,11 +8,14 @@
 
 #import "WTViewController.h"
 #import <CoreLocation/CLGeocoder.h>
+#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 @interface WTViewController ()
-@property IBOutlet UILabel *city;
-@property CLLocationManager *manager;
-@property CLGeocoder *coder;
+@property (nonatomic, weak) IBOutlet UILabel *city;
+@property (nonatomic, strong) CLLocationManager *manager;
+@property (nonatomic, strong) CLGeocoder *coder;
+@property (nonatomic, strong) MSClient *client;
+@property (nonatomic, strong) MSTable *table;
 @end
 
 @implementation WTViewController 
@@ -32,10 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"Loaded...");
-    self.city.text = @"Loaded";
-    [self.manager startUpdatingLocation];
-    // Do any additional setup after loading the view from its nib.
+    [self.manager startMonitoringSignificantLocationChanges];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,12 +47,31 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *location = locations.firstObject;
+ 
+    if (!self.client) {
+        self.client = [[MSClient alloc] initWithApplicationURL:[[NSURL alloc] initWithString:@"https://wheretheheckistom.azure-mobile.net/"]  applicationKey:@"APP_KEY"];
+        self.table = [self.client tableWithName:@"locations"];
+    }
+    
+    MSTable *table = [self.client tableWithName:@"locations"];
     
     [self.coder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark = placemarks.firstObject;
-        NSString *city = placemark.locality;
-
-        // TODO: Upload location
+        
+        // Update label
+        self.city.text = placemark.locality;
+        
+        // Build dictionary
+        NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+        
+        [data setObject:[[NSNumber alloc] initWithDouble:location.coordinate.latitude] forKey:@"latitude"];
+        [data setObject:[[NSNumber alloc] initWithDouble:location.coordinate.longitude] forKey:@"longitude"];
+        [data setObject:placemark.locality forKey:@"locality"];
+        [data setObject:placemark.administrativeArea forKey:@"area"];
+        
+        [table insert:data completion:^(NSDictionary *item, NSError *error) {
+            // Do nothing
+        }];
     }];
 }
 
