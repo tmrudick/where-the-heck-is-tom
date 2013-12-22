@@ -200,6 +200,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Tom Rudick";
 				TargetAttributes = {
+					2C769D5B186619B000BEB409 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					2C769D76186619B000BEB409 = {
 						TestTargetID = 2C769D5B186619B000BEB409;
 					};

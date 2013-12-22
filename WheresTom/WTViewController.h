@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface WTViewController : UIViewController
-
+@interface WTViewController : UIViewController <CLLocationManagerDelegate>
 @end
