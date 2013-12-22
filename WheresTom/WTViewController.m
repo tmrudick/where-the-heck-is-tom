@@ -7,10 +7,12 @@
 //
 
 #import "WTViewController.h"
+#import <CoreLocation/CLGeocoder.h>
 
 @interface WTViewController ()
 @property IBOutlet UILabel *city;
 @property CLLocationManager *manager;
+@property CLGeocoder *coder;
 @end
 
 @implementation WTViewController 
@@ -21,6 +23,8 @@
     if (self) {
         self.manager = [[CLLocationManager alloc] init];
         [self.manager setDelegate:self];
+        
+        self.coder = [[CLGeocoder alloc] init];
     }
     return self;
 }
@@ -44,7 +48,12 @@
 {
     CLLocation *location = locations.firstObject;
     
-    NSLog(@"%f, %f", location.coordinate.latitude, location.coordinate.longitude);
+    [self.coder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = placemarks.firstObject;
+        NSString *city = placemark.locality;
+
+        // TODO: Upload location
+    }];
 }
 
 @end
