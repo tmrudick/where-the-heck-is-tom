@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a, a:link, a:visited {
+    color: #000;
+}
+h1 {
+    text-align: center;
+    margin-top: 150px;
+    font-family: Arial, sans-serif;
+    font-variant: small-caps;
+    font-size: 150px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+ul li.first {
+    margin: 0;
+}
+
+ul
+{
+    padding: 0;
+    list-style: none;
+    margin: 15px auto;
+    text-align: center;
+    font-size: 10pt;
+}
+ul li
+{
+    padding: 0;
+    display: inline;
+    margin-left: 12px;
+}
